@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><style>body{font-family:Arial;padding:30px;} h1{text-align:center;} .section{margin-bottom:20px;} table{width:100%;border-collapse:collapse;} td{padding:8px;border-bottom:1px solid #ccc;}</style></head>
+<body>
+    <h1>{{ business.business_name }} – Cleaning Estimate</h1>
+    <p>{{ business.business_address }} | {{ business.contact_email }} | {{ business.contact_number }}</p>
+    <hr>
+    <div class="section">
+        <h2>Estimate Summary</h2>
+        <table>
+            {% for key, value in quote.items() %}
+            <tr>
+                <td>{{ key.replace("_", " ").title() }}</td>
+                <td>${{ "{:,.2f}".format(value) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

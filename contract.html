@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 30px; }
+        h1 { text-align: center; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .section { margin-bottom: 20px; }
+        img.logo { max-height: 100px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        {% if business.logo_url %}
+        <img class="logo" src="{{ business.logo_url }}">
+        {% endif %}
+        <h1>{{ business.business_name }}</h1>
+        <p>{{ business.business_address }}</p>
+        <p>{{ business.contact_email }} | {{ business.contact_number }}</p>
+    </div>
+
+    <div class="section">
+        <h2>Client Information</h2>
+        <p><strong>Name:</strong> {{ client.name }}</p>
+        <p><strong>Email:</strong> {{ client.contact_email }}</p>
+        <p><strong>Phone:</strong> {{ client.contact_number }}</p>
+        <p><strong>Cleaning Frequency:</strong> {{ client.cleaning_frequency }}</p>
+    </div>
+
+    <div class="section">
+        <h2>Bid Information</h2>
+        <p><strong>Address:</strong> {{ bid.bid_address }}</p>
+        <p><strong>Notes:</strong> {{ bid.notes }}</p>
+        <p><strong>View on Maps:</strong> <a href="{{ maps_link }}">{{ maps_link }}</a></p>
+    </div>
+</body>
+</html>
